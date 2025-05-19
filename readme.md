@@ -16,6 +16,17 @@ A real-time, room-based chat application built with Flask and Flask-SocketIO tha
 
 ---
 
+---
+
+🧠 Operating System Concepts Used
+🔄 Multithreading / Concurrency
+
+- The application uses Flask-SocketIO, which enables multithreaded behavior.
+- This allows multiple users to connect and interact simultaneously, without blocking the server.
+- Each user connection is handled by a separate thread (or coroutine, depending on the async mode), which is an essential OS concept used in scalable systems.
+
+---    
+
 ## 🖼️ Screenshots
 
 | Desktop View | Mobile View |
