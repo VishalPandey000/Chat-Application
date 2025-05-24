@@ -43,9 +43,11 @@ socket.on('message', data => {
 socket.on('typing', data => {
     const typingElem = document.getElementById('typing');
     typingElem.textContent = `${data.username} is typing...`;
+    typingElem.style.display = 'block'; // Show the element
 
     clearTimeout(typingElem.timer);
     typingElem.timer = setTimeout(() => {
-        typingElem.textContent = '';
-    }, 1000); // Clear after 1 second
+        typingElem.style.display = 'none'; // Hide the element
+    }, 1000); // Hide after 1 second
 });
+
