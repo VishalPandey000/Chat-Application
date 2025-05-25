@@ -35,9 +35,11 @@ def handle_typing(data):
 def handle_leave(data):
     username = data['username']
     room = users.get(username)
-    leave_room(room)
-    send(f"{username} has left the room.", room=room)
-    del users[username]
+    if room:
+        leave_room(room)
+        send(f"{username} has left the room.", room=room)
+        del users[username]
+
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)

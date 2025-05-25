@@ -24,6 +24,14 @@ document.getElementById('message').addEventListener('input', () => {
     }
 });
 
+function leaveRoom() {
+    if (username && room) {
+        socket.emit('leave', { username });
+        document.getElementById('chat-box').innerHTML += `<p style="color:red;">You have left the room.</p>`;
+    }
+}
+
+
 // Handle incoming messages
 socket.on('message', data => {
     const chatBox = document.getElementById('chat-box');
@@ -48,6 +56,6 @@ socket.on('typing', data => {
     clearTimeout(typingElem.timer);
     typingElem.timer = setTimeout(() => {
         typingElem.style.display = 'none'; // Hide the element
-    }, 1000); // Hide after 1 second
+    }, 1000); 
 });
 
